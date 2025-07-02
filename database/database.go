@@ -35,10 +35,10 @@ func Connect() (*mongo.Client, *mongo.Collection, *mongo.Collection) {
 	// Check Connection by Running a Query
 	err = userCollection.FindOne(ctx, bson.M{}).Err()
 	if err != nil && err != mongo.ErrNoDocuments {
-		log.Fatalf("Failed to query used collection: %v", err)
+		log.Fatal("Failed to query used collection: %v", err)
 	}
 
-	log.Println("Successfully Connected to the MongoDB database ;)")
+	log.Println("Successfully Connected to the MongoDB database !")
 	return client, userCollection, noteCollection
 
 }
